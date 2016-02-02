@@ -3,17 +3,17 @@
  */
 function Triangle(){
     // Three types of triangle.
-    this.type = [
-        "Equilateral",
-        "Isosceles",
-        "Scalene"
-    ];
+    this.type = {
+        Equilateral : "Equilateral",
+        Isosceles : "Isosceles",
+        Scalene : "Scalene"
+    }
     // Exception messages.
-    this.exception = [
-        "One or more sides are empty or are not a number",
-        "One or more sides are <= 0, therefore triangle can't be made.",
-        "Wrong length of a sides. Cannot form proper triangle."
-    ]
+    this.exception = {
+        INVALID_INPUT : "One or more sides are empty or are not a number",
+        NEGATIVE_NUMBER :"One or more sides are <= 0, therefore triangle can't be made.",
+        INVALID_TRIANGLE :"Wrong length of a sides. Cannot form proper triangle."
+    }
 }
 
 /**
@@ -28,30 +28,30 @@ Triangle.prototype.defineType = function(a, b, c) {
     try{
         // Check for invalid inputs
         if((isNaN(a) || a === null || a === "") || (isNaN(b) || b === null || b === "") || (isNaN(c) || c === null || c == "")) {
-            throw this.exception[0]
+            throw this.exception["INVALID_INPUT"]
         }
         a = Number(a)
         b = Number(b)
         c = Number(c)
         // Check for proper side lengths
         if(!this.checkProperLength(a, b, c)) {
-            throw this.exception[1]
+            throw this.exception["NEGATIVE_NUMBER"]
         }
         // Check if sides follow triangle rule
         if(!this.checkTriangleCondition(a, b, c)) {
-           throw this.exception[2]
+           throw this.exception["INVALID_TRIANGLE"]
         }
         // Check if triangle is equilateral
         if(a == b && b == c) {
-            return this.type[0]
+            return this.type["Equilateral"]
         }
         // Check if triangle is isosceles
         else if(a == b || b == c || c == a) {
-            return this.type[1]
+            return this.type["Isosceles"]
         }
         // If neither, then is scalene
         else {
-            return this.type[2]
+            return this.type["Scalene"]
         }
     }catch(error){
         return error

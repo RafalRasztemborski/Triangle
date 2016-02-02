@@ -24,7 +24,7 @@ describe("Triangle", function() {
 
     for(var input in invalidInputs) {
       triangle = new Triangle();
-      runTest(invalidInputs[input], triangle.exception[0])
+      runTest(invalidInputs[input], triangle.exception["INVALID_INPUT"])
     }
   });
 
@@ -41,7 +41,7 @@ describe("Triangle", function() {
 
     for(var input in invalidInputs) {
       triangle = new Triangle();
-      runTest(invalidInputs[input], triangle.exception[1])
+      runTest(invalidInputs[input], triangle.exception["NEGATIVE_NUMBER"])
     }
   })
 
@@ -60,7 +60,7 @@ describe("Triangle", function() {
 
     for(var input in invalidInputs) {
       triangle = new Triangle();
-      runTest(invalidInputs[input], triangle.exception[2])
+      runTest(invalidInputs[input], triangle.exception["INVALID_TRIANGLE"])
     }
   });
 
@@ -75,7 +75,7 @@ describe("Triangle", function() {
 
     for(var input in invalidInputs) {
       triangle = new Triangle();
-      runTest(invalidInputs[input], triangle.type[0])
+      runTest(invalidInputs[input], triangle.type["Equilateral"])
     }
   });
 
@@ -90,7 +90,7 @@ describe("Triangle", function() {
 
     for(var input in invalidInputs) {
       triangle = new Triangle();
-      runTest(invalidInputs[input], triangle.type[1])
+      runTest(invalidInputs[input], triangle.type["Isosceles"])
     }
   });
 
@@ -102,7 +102,7 @@ describe("Triangle", function() {
 
     for(var input in invalidInputs) {
       triangle = new Triangle();
-      runTest(invalidInputs[input], triangle.type[2])
+      runTest(invalidInputs[input], triangle.type["Scalene"])
     }
   });
 
