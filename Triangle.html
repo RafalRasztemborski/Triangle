@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Triangle</title>
+    <script src="src/Triangle.js"></script>
+</head>
+<body>
+<input type="text" id="sideA" placeholder="side A">
+<input type="text" id="sideB" placeholder="side B">
+<input type="text" id="sideC" placeholder="side C">
+<button type="button" onclick="defineTriangle()">Get Triangle</button>
+<br/>
+<p id="result"></p>
+</body>
+<script>
+    function defineTriangle() {
+        var sideA = document.getElementById("sideA").value
+        var sideB = document.getElementById("sideB").value
+        var sideC = document.getElementById("sideC").value
+
+        var t = new Triangle();
+        var type = t.defineType(sideA, sideB, sideC)
+
+        document.getElementById("result").innerText = type;
+
+    }
+</script>
+</html>
